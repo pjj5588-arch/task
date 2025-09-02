@@ -13,7 +13,7 @@
     03.Navber Area Style
     04.Home Section Style
     05.About Section Style
-    06.Services Section Style
+    06.achievements Section Style
     07.Portfolio Section Style
     08.Testimonial Section Style
     09.Contact Section Style
@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-	color: #f55422;
+	color: #f52222;
 	text-decoration: none !important;
 	-moz-transition: all 0.5s ease-in-out 0s;
 	-ms-transition: all 0.5s ease-in-out 0s;
@@ -78,7 +78,7 @@ img {
 }
 
 a:hover {
-	color: #f55422;
+	color: #f52222;
 	-moz-transition: all 0.4s ease-in-out 0s;
 	-ms-transition: all 0.4s ease-in-out 0s;
 	-o-transition: all 0.4s ease-in-out 0s;
@@ -87,7 +87,7 @@ a:hover {
 }
 
 a:hover, a:focus {
-	color: #f55422;
+	color: #f52222;
 	text-decoration: none;
 }
 
@@ -111,7 +111,7 @@ p {
 .form-control:focus {
 	box-shadow: none;
 	outline: 0 none;
-	border-bottom: 1px solid #f55422;
+	border-bottom: 1px solid #f52222;
 }
 
 .btn:focus {
@@ -142,9 +142,9 @@ button:focus {
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
 	font-weight: 500;
-	border: 2px solid #f55422;
+	border: 2px solid #f52222;
 	border-radius: 30px;
-	background: #f55422;
+	background: #f52222;
 	transition: all 500ms ease;
 	cursor: pointer;
 	color: #fff;
@@ -154,7 +154,7 @@ button:focus {
 .button:hover {
 	color: #fff;
 	background: transparent;
-	border: 2px solid #f55422;
+	border: 2px solid #f52222;
 }
 
 .after-btn {
@@ -176,7 +176,7 @@ button:focus {
     top: 0;
     width: 45%;
     height: 100%;
-    background: #f55422;
+    background: #F52222;
 	transition: all 500ms ease;
 }
 .after-btn:hover:after {
@@ -217,9 +217,9 @@ dl, ol, ul {
 	font-family: 'Poppins', sans-serif;
 }
 
-/* Services 섹션 제목만 검정색 */
-#service .section-title h2 {
-	color: #333;
+/* achievements 섹션 제목만 검정색 */
+#achievements .section-title h2 {
+    color: #333;
 }
 
 /* Testimonials 섹션 제목만 검정색 */
@@ -236,7 +236,7 @@ dl, ol, ul {
     height: 2px;
     width: 40px;
     margin: 0 auto;
-	background: #f55422;
+	background: #F52222;
 }
 .section-title h2:after {
     content: "";
@@ -247,7 +247,7 @@ dl, ol, ul {
     height: 2px;
     width: 20px;
     margin: 0 auto;
-	background: #f55422;
+	background: #F52222;
 }
 
 .display-table {
@@ -277,7 +277,7 @@ dl, ol, ul {
 	right: 25px;
 	bottom: 20px;
 	text-align: center;
-	background: #f55422;
+	background: #F52222;
 	transition: background 0.5s;
 	cursor: pointer;
 }
@@ -331,7 +331,7 @@ dl, ol, ul {
 }
 .loader .loader-outter {
   position: absolute;
-  border: 2px solid #f55422;
+  border: 2px solid #F52222;
   border-left-color: transparent;
   border-radius: 50%;
   width: 50px;
@@ -343,7 +343,7 @@ dl, ol, ul {
 }
 .loader .loader-inner {
   position: absolute;
-  border: 2px solid #f55422;
+  border: 2px solid #F52222;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -487,13 +487,13 @@ dl, ol, ul {
 }
 
 .navbar-b .dropdown-menu .dropdown-item:hover {
-	background-color: #f55422;
+	background-color: #F52222;
 	color: #fff;
 	transition: all 500ms ease;
 }
 
 .navbar-b .dropdown-menu .dropdown-item.active {
-	background-color: #f55422;
+	background-color: #F52222;
 }
 
 .navbar-toggler {
@@ -736,7 +736,7 @@ dl, ol, ul {
 }
 
 .color-text {
-	color: #f55422;
+	color: #F52222;
 }
 
 .about-bio-info {
@@ -784,12 +784,12 @@ dl, ol, ul {
 }
 
 /**************************************
- * 06. Services Section Style
+ * 06. achievements Section Style
  *************************************/
-.services-area .section-title {
+.achievements-area .section-title {
     margin-bottom: 45px;
 }
-.single-services-item {
+.single-achievements-item {
 	position: relative;
 	padding: 45px 30px 35px;
 	text-align: left;
@@ -797,17 +797,17 @@ dl, ol, ul {
 	background-color: #1f2227;
 	transition: all 0.4s ease 0s;
 }
-.single-services-item:hover {
+.single-achievements-item:hover {
     -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
 }
 
-.services-icon {
+.achievements-icon {
 	position: relative;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
-.services-icon::before {
+.achievements-icon::before {
 	content: '';
     position: absolute;
     top: -10px;
@@ -819,12 +819,12 @@ dl, ol, ul {
     -webkit-transition: .5s;
     transition: .5s;
 }
-.services-icon i {
+.achievements-icon i {
 	font-size: 40px;
 	color: #fff;
 }
 
-.services-info h6 {
+.achievements-info h6 {
 	color: #fff;
 	font-size: 18px;
 	font-weight: 500;
@@ -833,17 +833,17 @@ dl, ol, ul {
 	-webkit-transition: all .4s;
 	transition: all .4s;
 }
-.services-info p {
+.achievements-info p {
 	color: #c5c5c5;
 	-webkit-transition: all .4s;
 	transition: all .4s;
 }
 
-.single-services-item .services-details-btn {
+.single-achievements-item .achievements-details-btn {
     margin-top: 20px;
     text-align: right;
 }
-.single-services-item .services-details-btn .more-btn {
+.single-achievements-item .achievements-details-btn .more-btn {
     display: inline-block;
     font-size: 15px;
     color: #fff;
@@ -890,7 +890,7 @@ dl, ol, ul {
 
 .project-area .project-list .nav li:hover, .project-area .project-list .nav li.filter-active {
 	color: #fff;
-	background: #f55422;
+	background: #F52222;
 	-moz-transition: all 0.5s ease-in-out 0s;
 	-ms-transition: all 0.5s ease-in-out 0s;
 	-o-transition: all 0.5s ease-in-out 0s;
@@ -977,7 +977,7 @@ dl, ol, ul {
 .project-item .project-img-overlay .project-content h6 {
 	position: relative;
 	z-index: 7;
-	color: #f55422;
+	color: #F52222;
 	margin-top: 5px;
 	font-size: 15px;
 	letter-spacing: 0.7px;
@@ -1033,8 +1033,8 @@ dl, ol, ul {
 	border: 5px solid #ffffff;
 	width: 110px !important;
 	margin: 0 auto;
-	border-left-color: #f55422;
-	border-bottom-color: #f55422;
+	border-left-color: #F52222;
+	border-bottom-color: #F52222;
 }
 .single-testimonial .bio-info {
     text-align: center;
@@ -1154,6 +1154,6 @@ button, input, textarea:focus {
 }
 
 .copyright-area p a {
-	color: #f55422;
+	color: #F52222;
 	font-weight: 500;
 }
