@@ -13,19 +13,6 @@
 		$('.loader').delay(500).fadeOut('slow');
 	});
 	
-	// Porfolio isotope and filter
-	$(window).on('load', function() {
-		var projectIsotope = $('.project-container').isotope({
-			itemSelector: '.project-grid-item'
-		});
-		$('#project-flters li').on('click', function() {
-			$("#project-flters li").removeClass('filter-active');
-			$(this).addClass('filter-active');
-			projectIsotope.isotope({
-				filter: $(this).data('filter')
-			});
-		});
-	});
 	
 	// Navbar Menu Reduce 
 	$(window).trigger('scroll');
