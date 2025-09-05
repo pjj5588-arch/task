@@ -475,7 +475,6 @@ dl, ol, ul {
   overflow: hidden;               /* 스크롤 방지 */
 }
 
-
 .home-content {
   z-index: 2;
   transform: translateY(-100%); /* 화면 중앙보다 20% 위로 이동 */
@@ -583,43 +582,6 @@ dl, ol, ul {
 }
 .social-media a:hover {
 	opacity: .5;
-}
-
-.home-area .arrow {
-    position: absolute;
-    bottom: 5vh;
-    width: 100%;
-    text-align: center;
-    font-size: 13px;
-    z-index: 8;
-}
-.home-area .arrow i {
-    position: relative;
-    display: inline-block;
-    width: 30px;
-    color: #fff;
-    height: 30px;
-    line-height: 30px;
-}
-.home-area .arrow i:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    z-index: -1;
-    -webkit-transition: all .2s;
-    transition: all .2s;
-}
-.home-area .arrow i:hover:after {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    opacity: 0;
-    -webkit-transition: all .5s;
-    transition: all .5s;
 }
 
 /**************************************
@@ -853,22 +815,93 @@ dl, ol, ul {
 .single-achievements-item .achievements-details-btn .more-btn:hover {
     color: #ffffff; /* 호버 시 밝게 */
 }
-/**************************************
- * 10. Footer Section Style
- *************************************/
 .footer-area {
-	padding: 50px 0;
+    background: linear-gradient(135deg, #141619, #1e1e24);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
 }
 
-.copyright-area {
-     display: block;
+.footer-area h3 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
-.copyright-area p {
-	color: #fff;
+.footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 22px;
+    color: #fff;
+    transition: all 0.3s ease;
 }
 
-.copyright-area p a {
-	color: #F52222;
-	font-weight: 500;
+.footer-social a:hover {
+    color: #ff3b3b; /* T1 레드 */
+    transform: scale(1.3);
 }
+
+.footer-top-text {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    font-size: 13px;
+}
+
+.footer-bottom a {
+    color: #ff3b3b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* 캘린더 */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.calendar-day {
+    background-color: #333;
+    color: #fff;
+    min-height: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.calendar-day .date {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.calendar-day .match-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.calendar-day .match-link:hover {
+    text-decoration: underline;
+}
+
+
