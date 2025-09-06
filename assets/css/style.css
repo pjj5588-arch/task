@@ -29,7 +29,7 @@
 @import url("owl.theme.default.min.css");
 
 body {
-    background: #ff0000 !important; /* 페이지 전체 배경 */
+    background: #ff0000; /* 페이지 전체 배경 */
     color: #fff;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
@@ -51,14 +51,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .home-bg-color {
-  position: fixed; /* 스크롤해도 고정 */
-  bottom: 0;       /* 화면 맨 아래 붙이기 */
-  left: 0;
-  width: 100%;
-  height: 40vh;    /* 화면의 40% 높이 */
-  background-color: #ff0202;
-  z-index: 0;      /* header보다 낮지만 body보다는 위 */
+  position: relative;  /* fixed → relative */
+  bottom: auto;
+  height: 40vh;
 }
+
 
 
 a {
@@ -120,6 +117,55 @@ p {
 	outline: none !important;
 	box-shadow: none;
 }
+
+/* ===============================
+   공통 버튼 스타일 - T1 레드
+   =============================== */
+.btn-t1 {
+    color: #ff0000;            /* 글자색 */
+    border: 2px solid #ff0000; /* 테두리 */
+    background-color: transparent; /* 기본 배경 투명 */
+    padding: 8px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 15px;
+    text-decoration: none; /* a 태그 기본 밑줄 제거 */
+}
+
+.btn-t1:hover {
+    background-color: #ff0000; /* 빨강 배경 */
+    color: #fff;               /* 글씨 흰색 */
+    border-color: #ff0000;
+}
+
+/* Read More 버튼 위치 조정 */
+.news-area .read-more-btn {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.news-card {
+    min-height: 100px;         /* 카드 최소 높이 고정 */
+    display: flex;             /* 내부 컨텐츠 flex 사용 */
+    flex-direction: column;    /* 세로 배치 */
+    justify-content: space-between; /* 제목과 버튼/날짜 간격 균등 */
+}
+.news-card h5 {
+    margin-bottom: 10px;
+}
+.news-card p {
+    margin-bottom: 0;
+}
+
 
 button:focus {
 	outline: 0 none;
@@ -219,10 +265,44 @@ dl, ol, ul {
 	font-family: 'Poppins', sans-serif;
 }
 
+.about-content p {
+    color: #333333; /* 원하는 색상으로 변경 */
+}
+
+.news-area .read-more-btn {
+  position: absolute;  /* 부모 기준 절대 위치 */
+  bottom: -60px;       /* container 아래쪽으로 살짝 내려서 여백 */
+  left: 50%;           /* 가로 중앙 */
+  transform: translateX(-50%);
+}
+
 /* achievements 섹션 제목만 검정색 */
 #achievements .section-title h2 {
-    color: #ffffff;
+    color: #000000;
 }
+
+/* Subscribe form */
+#fan form input.form-control {
+    height: 40px;           /* 높이 맞춤 */
+    padding: 0 12px;        /* 좌우 패딩 */
+    font-size: 14px;
+    margin: 0;              /* margin 제거 */
+}
+
+#fan form .btn-t1 {
+    height: 40px;           /* input과 동일 */
+    padding: 0 20px 0 20px;        /* 좌우 패딩 */
+    font-size: 14px;
+    line-height: 36px;      /* 버튼 텍스트 세로 중앙 */
+    margin: 0;              /* margin 제거 */
+}
+
+.t1-red {
+  color: red;
+  font-weight: bold; /* (선택) 강조 효과 */
+}
+
+
 
 /**************************************
  * 02.Preloader Style
@@ -312,6 +392,8 @@ dl, ol, ul {
 	padding-bottom: 1.563rem;
 }
 
+
+
 .navbar-b.navbar-reduce {
 	box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
 }
@@ -322,12 +404,15 @@ dl, ol, ul {
 	padding-left: 0;
 }
 
-.navbar-b.navbar-trans .nav-link, .navbar-b.navbar-reduce .nav-link {
+.navbar-b.navbar-trans .nav-link, 
+.navbar-b.navbar-reduce .nav-link {
 	color: #fff;
-	text-transform: capitalize;
-	font-weight: 500;
-    font-size: 14px;
-	letter-spacing: 0.5px;
+	text-transform: uppercase;       /* 모든 글자를 대문자로 */
+	font-weight: 700;                /* 글자 진하게 */
+	font-size: 15px;                 /* 조금 키우기 */
+	letter-spacing: 1px;             /* 글자 사이 약간 띄우기 */
+	font-family: 'Poppins', sans-serif; /* 이미 Poppins, 필요시 다른 구글폰트 가능 */
+	transition: all 0.3s ease;       /* 마우스 오버 시 부드럽게 변하도록 */
 }
 
 .navbar-b.navbar-trans .nav-link:hover, .navbar-b.navbar-reduce .nav-link:hover {
@@ -460,7 +545,6 @@ dl, ol, ul {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* 페이지 전체 스크롤 방지 */
 }
 .home-area {
   height: 100vh;                 /* 화면 전체 높이 */
@@ -470,26 +554,18 @@ dl, ol, ul {
   align-items: center;           /* 세로 중앙 */
   text-align: center;
   position: relative;
-  background: url(../img/home-bg.jpg) no-repeat center center / cover;
+  background: url(../img/home-bg.jpg) no-repeat center center / 140%;
   background-attachment: fixed;   /* 배경 고정 */
-  overflow: hidden;               /* 스크롤 방지 */
 }
 
 .home-content {
   z-index: 2;
-  transform: translateY(-100%); /* 화면 중앙보다 20% 위로 이동 */
+  transform: translateY(0); /* 또는 아예 삭제 */
 }
 
+
 .home-area::after {
-  content: "";
-  position: fixed;   /* 화면에 고정 */
-  bottom: 0%;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: rgba(255,2,2,0.6);
-  z-index: 2;
-  pointer-events: none;
+  display: none;  /* 또는 해당 블록 전체 삭제 */
 }
 
 .hero-equal-height {
@@ -614,11 +690,16 @@ dl, ol, ul {
     margin: 15px auto;    /* 모바일 시도 가운데 정렬 */
 }
 
+.player-area h2 {
+    color: #000000;
+}
+
+
 /* 플레이어 이름/포지션 */
 .player-content h3 {
     font-size: 26px;
     font-weight: 700;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 .player-content h6 {
@@ -680,7 +761,7 @@ dl, ol, ul {
 .player-bio-details h3 {
     font-size: 20px;  /* 제목(출생, 포지션 등) 글자 크기 */
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
 }
 
 
@@ -693,19 +774,19 @@ dl, ol, ul {
 .player-bio-details .player-bio-text p {
     font-weight: 500;
     font-size: 14px;
-    color: #c5c5c5;
+    color: #ffffff;
     margin: 0;
     text-transform: capitalize;
 }
 
 .blc {
-    color: #fff !important;
+    color: #ffffff !important;
 }
 
 /* player-area 전체 배경 빨강, 글씨 흰색 */
 .player-area {
-    background-color: #ff0000; /* 빨강 배경 */
-    color: #fff;
+    background-color: #ffffff; /* 빨강 배경 */
+    color: #ffffff;
 }
 
 .player-content {
@@ -714,9 +795,6 @@ dl, ol, ul {
     border-radius: 10px;
     max-width: 100%; /* 또는 원하는 퍼센트 */
 }
-
-
-
 
 /* Carousel 이미지 중앙 정렬 */
 #playerCarousel .carousel-item img {
@@ -740,7 +818,128 @@ dl, ol, ul {
     display: block;    /* inline-block 방지 */
 }
 
+/* Timeline Section */
+.timeline-area {
+  background: #111; /* 배경 어두운 회색 */
+  color: #fff;
+  padding: 80px 0;
+  font-family: 'Poppins', sans-serif;
+}
 
+.timeline-area .section-title h2 .team {
+  color: #e50914 !important;
+  font-weight: 700;
+}
+
+.timeline .section-title h2 .team {
+  color: #e50914 !important;
+}
+
+
+.timeline .section-title p {
+  color: #fff;
+  font-size: 16px;
+}
+
+/* Timeline 기본 라인 */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #e50914; /* 중앙 라인 빨강 */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+/* Timeline Item */
+.timeline-item {
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+}
+
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(even) { left: 50%; }
+
+/* Timeline Content Box */
+.timeline-content {
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* 중앙 노드 */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  background-color: #e50914;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd)::before { right: -10px; }
+.timeline-item:nth-child(even)::before { left: -10px; }
+
+/* 연도 스타일 */
+.timeline-content h3 {
+  color: #e50914; /* 연도 빨강 */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* 업적 텍스트 스타일 */
+.timeline-content p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 아이콘 색상 */
+.timeline-content p span.icon-worlds { color: gold; }      /* 🏆 월드 챔피언십 */
+.timeline-content p span.icon-msi { color: gold; }         /* 🥇 MSI */
+.timeline-content p span.icon-lck { color: #e50914; }      /* 🎖️ LCK */
+.timeline-content p span.icon-ewc { color: silver; }       /* 🏅 EWC */
+.timeline-content p span.icon-allstar { color: yellow; }   /* ⭐ All-Star */
+.timeline-content p span.icon-nlb { color: #CD7F32; }      /* 🏵️ NLB */
+
+/* 모바일 대응 */
+@media screen and (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline::after {
+    left: 20px; /* 모바일에서 라인 위치 조정 */
+  }
+
+  .timeline-item::before {
+    left: 10px !important;
+  }
+}
 
 /**************************************
  * 06. achievements Section Style
@@ -756,6 +955,7 @@ dl, ol, ul {
     margin-top: 30px;
     transition: all 0.4s ease 0s;
     border-radius: 10px;
+    cursor: pointer; /* 마우스 포인터 변경 */
 }
 /* 호버 시 조금 밝아지면서 입체감 */
 .single-achievements-item:hover {
@@ -815,6 +1015,84 @@ dl, ol, ul {
 .single-achievements-item .achievements-details-btn .more-btn:hover {
     color: #ffffff; /* 호버 시 밝게 */
 }
+
+.achievement-popup {
+    position: absolute;
+    background: #fff;
+    color: #070707; /* 기본 글자색 */
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 99;
+}
+
+/* 팝업 제목 색상 */
+.achievement-popup strong {
+    color: #ff0000; /* 예: 빨강으로 바꾸기 */
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* 팝업 본문 색상 */
+.achievement-popup p {
+    color: #070707; /* 본문 색상 */
+    margin: 0;
+}
+
+/* achievements 끝 */
+
+ .fan-art-card {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 비율 */
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .fan-art-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 영역에 맞춰 잘림 없이 꽉 채움 */
+  }
+
+  /* 팬 투표 전체 카드 */
+.fan-vote {
+  padding: 2rem;               /* 카드 안쪽 여백 */
+  border-radius: 20px;         
+  background-color: #1a1a1a;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  max-width: 480px;
+  margin: 2rem auto;           /* 카드 주변 여백 */
+  border: 2px solid #e30613;   /* 테두리 강조 */
+}
+
+/* 팬 투표 제목 */
+.fan-vote h4 {
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.5rem;       /* 제목과 투표 select 버튼 사이 여백 */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+/* 투표 select + 버튼 사이 여백 */
+.fan-vote select,
+.fan-vote button {
+  margin-bottom: 1rem;
+}
+
+/* Vote 결과 박스 */
+.vote-bar {
+  margin-top: 0.8rem;
+}
+
+
+
+/* 푸터 */
 .footer-area {
     background: linear-gradient(135deg, #141619, #1e1e24);
     color: #fff;
@@ -842,7 +1120,7 @@ dl, ol, ul {
 
 .footer-top-text {
     font-size: 14px;
-    color: #ccc;
+    color: #ffffff;
 }
 
 .footer-bottom {
@@ -860,48 +1138,4 @@ dl, ol, ul {
 .footer-bottom a:hover {
     text-decoration: underline;
 }
-
-/* 캘린더 */
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.calendar-header {
-    font-weight: bold;
-    text-align: center;
-    padding: 10px 0;
-    background-color: #222;
-    color: #fff;
-    border-radius: 5px;
-}
-
-.calendar-day {
-    background-color: #333;
-    color: #fff;
-    min-height: 80px;
-    padding: 5px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.calendar-day .date {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.calendar-day .match-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.85rem;
-}
-
-.calendar-day .match-link:hover {
-    text-decoration: underline;
-}
-
-
+/* 푸터끝 */
