@@ -1,29 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('loginForm');
-  if (!loginForm) return;
+  const loginModalEl = document.getElementById('loginModal');
+  const loginButton = document.getElementById('loginButton');
 
-  loginForm.addEventListener('submit', function(e) {
+  if (!loginForm || !loginModalEl || !loginButton) return;
+
+  loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
     const correctEmail = "test@t1.gg";
     const correctPassword = "1234";
 
     if (email === correctEmail && password === correctPassword) {
       alert("로그인 성공! 🎉");
-      // 로그인 성공 시 모달 닫기
-      const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+      const modal = bootstrap.Modal.getInstance(loginModalEl);
       modal.hide();
     } else {
       alert("로그인 실패. 이메일 또는 비밀번호를 확인하세요.");
     }
   });
 
-  // 모달 닫힌 후 로그인 버튼으로 포커스 이동
-  const loginModalEl = document.getElementById('loginModal');
-  loginModalEl.addEventListener('hidden.bs.modal', function () {
-    document.getElementById('loginButton').focus();
+  // 모달 열릴 때 스크롤 잠금
+  loginModalEl.addEventListener('show.bs.modal', () => {
+    document.body.style.overflow = 'hidden';
+  });
+
+  // 모달 닫힐 때 스크롤 복원 & 포커스 제거
+  loginModalEl.addEventListener('hidden.bs.modal', () => {
+    document.body.style.overflow = ''; // 스크롤 원래대로
+    document.activeElement.blur();     // 포커스 제거 (자동 스크롤 방지)
+    loginForm.reset();
   });
 });

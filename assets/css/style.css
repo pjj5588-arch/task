@@ -296,6 +296,16 @@ dl, ol, ul {
 }
 
 
+  /* 버튼 호버 효과 */
+  #loginModal .btn:hover {
+    background-color: #ff1a2a;
+  }
+
+  /* 입력창 포커스 효과 */
+  #loginModal .form-control:focus {
+    box-shadow: 0 0 0 2px #E60012;
+    outline: none;
+  }
 
 /**************************************
  * 02.Preloader Style

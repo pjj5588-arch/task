@@ -237,29 +237,51 @@
   </footer>
   <!-- End Footer Section -->
 
-<!-- 로그인 버튼 -->
-<button id="loginButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-  로그인
-</button>
-
-<!-- 모달 -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">로그인</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- 로그인 모달 -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-4 shadow-lg" style="background-color: #fff;">
+      <!-- 헤더 -->
+      <div class="modal-header border-0" style="background-color: #fff; color: #000;">
+        <h5 class="modal-title fw-bold fs-5" id="loginModalLabel">T1 로그인</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
       </div>
-      <div class="modal-body">
-        <form id="loginForm">
-          <input type="email" id="email" placeholder="Email" required class="form-control mb-2">
-          <input type="password" id="password" placeholder="Password" required class="form-control mb-2">
-          <button type="submit" class="btn btn-primary">로그인</button>
+
+      <!-- 바디 -->
+      <div class="modal-body text-dark px-4 py-3">
+        <form id="loginForm" novalidate>
+          <!-- 이메일 -->
+          <div class="mb-3">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" id="email"
+                   class="form-control border border-secondary rounded-3 py-2 px-3"
+                   placeholder="예: test@t1.gg" required autofocus autocomplete="off"
+                   style="transition: box-shadow 0.3s;">
+            <div class="form-text text-muted">T1 계정 이메일을 입력해주세요.</div>
+          </div>
+
+          <!-- 비밀번호 -->
+          <div class="mb-4">
+            <label for="password" class="form-label">비밀번호</label>
+            <input type="password" id="password"
+                   class="form-control border border-secondary rounded-3 py-2 px-3"
+                   placeholder="Password" required autocomplete="off"
+                   style="transition: box-shadow 0.3s;">
+          </div>
+
+          <!-- 로그인 버튼 -->
+          <button type="submit"
+                  class="btn w-100 fw-bold rounded-3"
+                  style="background-color: #E60012; color: #fff; border: none; transition: background 0.3s;">
+            로그인
+          </button>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+
 
   <!-- ======= Scripts ======= -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
