@@ -21,13 +21,6 @@
  * 01. Generale Style
  *************************************/
 
-@import url("bootstrap.min.css");
-@import url("font-awesome.min.css");
-@import url("et-line.css");
-@import url("magnific-popup.css");
-@import url("owl.carousel.min.css");
-@import url("owl.theme.default.min.css");
-
 body {
     background: #ff0000; /* 페이지 전체 배경 */
     color: #fff;
