@@ -77,12 +77,6 @@
 	// navHeight 정의 (원래대로라면 nav 높이)
 var navHeight = document.querySelector('#mainNav').offsetHeight;
 
-// ScrollSpy 초기화
-var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-  target: '#mainNav',
-  offset: navHeight
-});
-
 
 	// Testimonials owl
 	$('#testimonial-slide').owlCarousel({
