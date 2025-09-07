@@ -269,6 +269,23 @@ dl, ol, ul {
   transform: translateX(-50%);
 }
 
+ .staff-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+  }
+
+  .staff-card:hover .staff-img {
+    border: 3px solid #E60012;
+  }
+
+  .staff-card .card-title {
+    transition: color 0.3s;
+  }
+
+  .staff-card:hover .card-title {
+    color: #E60012;
+  }
+
 /* achievements 섹션 제목만 검정색 */
 #achievements .section-title h2 {
     color: #000000;
