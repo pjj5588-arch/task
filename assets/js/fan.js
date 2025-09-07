@@ -1,4 +1,4 @@
-const votes = { Faker:0, Oner:0, Keria:0, Gumayusi:0, Hanabi:0 };
+const votes = { Doran:0, Oner:0, Faker:0, Gumayusi:0, Keria:0 };
 let hasVoted = false;
 
 document.getElementById('voteBtn').addEventListener('click', () => {
@@ -10,7 +10,7 @@ document.getElementById('voteBtn').addEventListener('click', () => {
 
   const totalVotes = Object.values(votes).reduce((a,b)=>a+b,0);
 
-  ['Faker','Oner','Keria','Gumayusi','Hanabi'].forEach(p => {
+  ['Doran','Oner','Faker','Gumayusi','Keria'].forEach(p => {
     const percent = totalVotes ? (votes[p]/totalVotes*100) : 0;
     const bar = document.getElementById(p+'CountBar');
     bar.style.width = '0%';
