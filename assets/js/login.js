@@ -1,37 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('loginForm');
-  const loginModalEl = document.getElementById('loginModal');
-  const loginButton = document.getElementById('loginButton');
+// login.js 파일
+document.addEventListener("DOMContentLoaded", () => {
+  // 로그인 폼 처리
+  const validId = "admin"; // 고정 아이디
+  const validPw = "1234";  // 고정 비밀번호
 
-  if (!loginForm || !loginModalEl || !loginButton) return;
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("email").value.trim();
+      const pw = document.getElementById("password").value.trim();
 
-  loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+      if (id === validId && pw === validPw) {
+        localStorage.setItem("loggedIn", "true");
+        alert("로그인 성공!");
+        window.location.href = "index.html"; // 로그인 후 메인 페이지 이동
+      } else {
+        alert("아이디 또는 비밀번호가 잘못되었습니다.");
+      }
+    });
+  }
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+  // 네비게이션 아이콘 로그인 상태 처리
+  const navbarUser = document.getElementById("navbar-user");
+  if (navbarUser) {
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
 
-    const correctEmail = "test@t1.gg";
-    const correctPassword = "1234";
-
-    if (email === correctEmail && password === correctPassword) {
-      alert("로그인 성공! 🎉");
-      const modal = bootstrap.Modal.getInstance(loginModalEl);
-      modal.hide();
+    if (isLoggedIn) {
+      navbarUser.innerHTML = `
+        <a class="nav-link" href="javascript:void(0)" onclick="logout()">
+          <i class="fa fa-sign-out" style="font-size:1.2rem;"></i>
+        </a>
+      `;
     } else {
-      alert("로그인 실패. 이메일 또는 비밀번호를 확인하세요.");
+      navbarUser.innerHTML = `
+        <a class="nav-link" href="login.html">
+          <i class="fa fa-user" style="font-size:1.2rem;"></i>
+        </a>
+      `;
     }
-  });
-
-  // 모달 열릴 때 스크롤 잠금
-  loginModalEl.addEventListener('show.bs.modal', () => {
-    document.body.style.overflow = 'hidden';
-  });
-
-  // 모달 닫힐 때 스크롤 복원 & 포커스 제거
-  loginModalEl.addEventListener('hidden.bs.modal', () => {
-    document.body.style.overflow = ''; // 스크롤 원래대로
-    document.activeElement.blur();     // 포커스 제거 (자동 스크롤 방지)
-    loginForm.reset();
-  });
+  }
 });
+
+// 로그아웃 함수는 DOMContentLoaded 바깥에 정의
+function logout() {
+  localStorage.removeItem("loggedIn");
+  alert("로그아웃 되었습니다.");
+  location.reload();
+}
